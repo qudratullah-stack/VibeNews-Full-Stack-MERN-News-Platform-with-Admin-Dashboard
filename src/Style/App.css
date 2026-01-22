@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.homePageNavbar{
+border: 1px solid;
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #00173c;}
+.homepageparrent{
+    background-image: url('../assets/Homepageheaderbg.png');
+    background-size: cover;
+    width: 100vw;
+    height: auto;
+}
+.navbariconparent{
+display: flex;
+  width: 25%;
+  justify-content: start;
+  align-items: center;
+ 
+}
+.navbariconparent img{
+    width: 100px;
+    height: 100px;
+}
+.navbariconparent span{
+    color: #0404ff;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 0 2px 1px white;
+}
+.textImageArrayparent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px;
+  background: rgba(128, 128, 128, 0.5);
+  color: #ffffff;
+  width: 100vw;
+  height: auto;
+}
+
+/* Text box */
+.arraytextbox {
+  flex: 1;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  
+}
+
+/* Image box */
+.iamgeArrayBox {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  height: 300px;
+}
+
+.iamgeArrayBox img {
+  width: 100%;
+ height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+     animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.allnewsparent{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 30px;
+}
+
+/* 3D Glass Card */
+.singlecard{
+  background: rgba(30, 80, 180, 0.25); /* soft blue */
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 18px;
+  color: #fff;
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+}
+
+/* Hover 3D Effect */
+.singlecard:hover{
+  transform: translateY(-12px) scale(1.02);
+  box-shadow:
+    0 25px 45px rgba(0,0,0,0.35);
+}
+
+/* Image */
+.singlecard img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+/* Title */
+.singlecard h3{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Description */
+.singlecard p{
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+/* Date */
+.singlecard h3:last-of-type{
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 14px;
+}
+
+/* Button */
+.singlecard button{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.singlecard button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+}
+
