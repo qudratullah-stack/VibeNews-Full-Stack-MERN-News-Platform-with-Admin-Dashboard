@@ -3,14 +3,58 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.loading{
+width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-top: 2px solid rgb(0, 180, 224);
+  border-bottom: 2.5px solid rgb(0, 141, 177);
+  margin: 0px auto;
+  border-right: 3px solid #f932f6;
+  border-left: 3px solid #f932f6;
+  animation: loader 1.5s linear infinite;
+}
+@keyframes loader{
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
+}
 .homePageNavbar{
 border: 1px solid;
   width: 100vw;
-  height: 100px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: #00173c;}
+  background-color: #00173c;
+ flex-wrap: wrap;
+}
+.navbarLinkParent{
+ display: flex;
+  width: 90%;
+  gap: 30px;
+  align-items: center;
+  padding: 3px;
+  height: 40px;
+  margin: 5px auto;
+  justify-content: center;
+
+}
+.navbarLinkParent a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.navbarAdminLink{
+  width: 60%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
 .homepageparrent{
     background-image: url('../assets/Homepageheaderbg.png');
     background-size: cover;
@@ -103,14 +147,13 @@ display: flex;
   transition: all 0.4s ease;
 }
 
-/* Hover 3D Effect */
+
 .singlecard:hover{
   transform: translateY(-12px) scale(1.02);
   box-shadow:
     0 25px 45px rgba(0,0,0,0.35);
-}
 
-/* Image */
+}
 .singlecard img{
   width: 100%;
   height: 170px;
@@ -119,28 +162,28 @@ display: flex;
   margin-bottom: 14px;
 }
 
-/* Title */
+
 .singlecard h3{
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 8px;
 }
 
-/* Description */
+
+
 .singlecard p{
   font-size: 14px;
   opacity: 0.9;
   margin-bottom: 12px;
 }
 
-/* Date */
 .singlecard h3:last-of-type{
   font-size: 12px;
   opacity: 0.7;
   margin-bottom: 14px;
 }
 
-/* Button */
+
 .singlecard button{
   width: 100%;
   padding: 10px;
