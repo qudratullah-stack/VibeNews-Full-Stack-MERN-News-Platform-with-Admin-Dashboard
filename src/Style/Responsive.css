@@ -1,0 +1,91 @@
+@media(max-width:900px){
+
+   .selectorparent {
+        display: flex;
+    }
+    .navbarLinkParent{
+        display: none;
+    }
+    .textImageArrayparent{
+    flex-direction: column;
+}
+.arraytextbox{
+    width: 90%;
+    flex-wrap: wrap;
+    height: auto;
+}
+.iamgeArrayBox{
+    width: 95%;
+    height: 250px;
+}
+}
+@media(max-width:750px){
+    .navbarAdminLink{
+        display: none;
+    }
+    #togglebtn{
+        display: flex;
+    }
+ 
+.navbarToggle {
+   display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 77px;
+    right: 20px;
+    width: 143px;
+    background-color: rgba(30, 80, 180, 0.70);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    padding: 10px 0;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 120px;
+    line-height: 0px;
+}
+.navbarToggle a, 
+.navbarToggle button {
+    text-decoration: none;
+    color: white !important;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent; 
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+.navbarToggle a:hover, 
+.navbarToggle button:hover {
+    background-color: rgba(255, 255, 255, 0.15); 
+    padding-left: 25px; 
+    color: #ffa2f3 !important; 
+}
+
+
+.navbarToggle button {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+}
+@media (max-width: 600px) {
+    .arraytextbox {
+        width: 95%;
+        line-height: 1.2;
+    }
+   .iamgeArrayBox img{
+    width: 98vw;
+   }
+   .authContainer{
+    width: 95% !important;
+    min-width: 250px !important;
+   }
+}
+

@@ -6,7 +6,7 @@ import { useContext } from "react"
 import  Loading from "./Loading"
 // import { Link } from "react-router-dom"
   function HomePage() {
-  const {loading,  allNews, allNewsData} = useContext(UserContext)!;
+  const {loading,  allNews, allNewsData, darkMode} = useContext(UserContext)!;
   useEffect(()=>{
     allNewsData()
   },[])
@@ -15,7 +15,7 @@ import  Loading from "./Loading"
   const interval = setInterval(() => {
     setImgLength(prev => (prev+1)%homeImagearray.length)
 
-  }, 4000);
+  }, 10000);
   return ()=> clearInterval(interval)
 },[])
 let   colors = ["#00015e", 'white', '#0099ff','black']
@@ -23,9 +23,9 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
     <>
       <Navbar />
 
-     <div className="homepageparrent">
+     <div className={darkMode?'bgnone':'homepageparrent'}>
       <div className="textImageArrayparent">
-      <div className="arraytextbox" style={{color:colors[imgLength%colors.length]}}>{homeImagearray[imgLength].text}</div>
+      <div className="arraytextbox" style={{color:colors[imgLength%colors.length]}} key={imgLength}>{homeImagearray[imgLength].text}</div>
      <div className="iamgeArrayBox">
       <img key={imgLength} src={homeImagearray[imgLength].image} alt="" />
      </div>
@@ -34,7 +34,7 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
      <div className="allnewsparent">
      {
        allNews.filter((news:any)=> news.categories.includes("general")).slice(0,4).map((news:any)=>(
-         <div className="singlecard" key={news._id}>
+         <div className={`singlecard ${darkMode?'lightCard':''}`} key={news._id}>
           <img src={news.image_url} alt="newsImage" />
           <h3>{news.title}</h3>
           <p>{news.description}</p>

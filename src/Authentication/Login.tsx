@@ -1,11 +1,14 @@
 import './Auth.css'
-
+import { UserContext } from '../Context/UserContext';
+import { useContext } from 'react';
 function Login() {
+     const { darkMode} = useContext(UserContext)!;
   return (
   <>
-  <div className="homepageparrent">
+ 
+  <div className={darkMode?'bgnone':'homepageparrent'}>
      <div className="bgcontroll">
-  <div className="authContainer">
+  <div className={`authContainer ${darkMode?'lightContainer':''}`}>
    <form>
   <div className="form-group">
     <label htmlFor="exampleInputEmail1">Email address</label>

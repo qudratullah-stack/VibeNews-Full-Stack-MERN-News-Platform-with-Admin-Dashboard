@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import Loading from "./Loading";
 function AllNewsCategoryPage() {
 
-    const {loading, allNewsCategory,categoriesNewsData} = useContext(UserContext)!;
+    const {loading, allNewsCategory,categoriesNewsData, darkMode} = useContext(UserContext)!;
       const {Category} = useParams<{Category:string}>();
     useEffect(()=>{
         if(Category){
@@ -15,11 +15,11 @@ function AllNewsCategoryPage() {
   return (
     <>
     <Navbar/>
-     <div className="homepageparrent">
+     <div className={darkMode?'bgnone':'homepageparrent'}>
         {loading &&<Loading/>}
      <div className="allnewsparent">
     {allNewsCategory.map((news:any)=>(
-           <div className="singlecard" key={news._id}>
+           <div className={`singlecard ${darkMode?'lightCard':''}`} key={news._id}>
         <img
   src={news.image_url && news.image_url.trim() !== "" ? news.image_url : defaultImage}
   alt="newsImage"

@@ -1,4 +1,5 @@
 import './Style/App.css'
+import './Style/Responsive.css'
 import HomePage from './Componenets/HomePage'
 import { NewsProvider } from './Context/NewsProvider'
 import AllNewsCategoryPage from './Componenets/AllNewsCategoryPage'

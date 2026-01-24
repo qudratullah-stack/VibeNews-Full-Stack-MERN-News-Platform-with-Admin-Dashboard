@@ -6,6 +6,7 @@ export const NewsProvider = ({children}:{children: React.ReactNode}) =>{
     const [allNews, setAllNews] = useState([])
     const [allNewsCategory, setallNewsCategory] = useState([])
     const [loading , setLoading] = useState(false)
+    const [darkMode , setDarkMode] = useState(false)
     const allNewsData = async()=> {
         try{
         setLoading(true)
@@ -31,7 +32,7 @@ const categoriesNewsData = async(categorynews:string)=>{
 }
    
     return(
-        <UserContext.Provider value={{allNews, loading , allNewsData,categoriesNewsData, allNewsCategory}}>
+        <UserContext.Provider value={{allNews, loading , allNewsData,categoriesNewsData, allNewsCategory, darkMode, setDarkMode}}>
             {children}
         </UserContext.Provider>
     )
