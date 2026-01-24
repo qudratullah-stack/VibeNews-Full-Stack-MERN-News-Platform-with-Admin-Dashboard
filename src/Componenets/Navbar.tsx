@@ -8,7 +8,12 @@ export default function Navbar() {
         <img src={newsIcon} alt="newsIcon" />
         <span>VibeNews</span>
         </div>
-        <div className="navbarAdminLink"></div>
+        <div className="navbarAdminLink">
+          <Link to="/about">About</Link>
+          <Link to="/help">Ask Question</Link>
+          <Link to="/signup">Sign up</Link>
+          <Link to="/login">Login</Link>
+        </div>
        <div className="navbarLinkParent">
         <Link to="/AllNewsCategoryPage/general">general</Link>
         <Link to="/AllNewsCategoryPage/entertainment">entertainment</Link>
