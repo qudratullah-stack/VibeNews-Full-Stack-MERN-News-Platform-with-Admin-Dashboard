@@ -7,6 +7,12 @@ export const UserContext = createContext<NewsContestType>({
     categoriesNewsData:async() => {},
     allNewsCategory:[],
     darkMode: false,
-    setDarkMode: () => {}
+    setDarkMode: () => {},
+     setUserName: ()=> {},
+     userName: '',
+      alert : false,
+    setAlert:  ()=> {},
+    successMessage: '',
+    setSuccessMessage: ()=>{}
 
 })

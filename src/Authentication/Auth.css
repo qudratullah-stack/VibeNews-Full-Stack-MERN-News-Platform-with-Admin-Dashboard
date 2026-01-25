@@ -21,3 +21,49 @@
     color: black;
      border: 1px solid #808080;
 }
+/* مین الرٹ کنٹینر */
+.alertmessage {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%); 
+  padding: 15px 40px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #1e50b4, #ff00df); 
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@keyframes popIn {
+  0% {
+    top: -100px;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+  }
+  100% {
+    top: 30px;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+
+input{
+    width: 98%;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  padding: 15px ;
+}
+.input-error {
+    border: 2px solid #ff4757 !important;
+    box-shadow: 0 0 8px rgba(255, 71, 87, 0.3) !important;
+}

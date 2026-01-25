@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { UserContext } from "./UserContext";
@@ -7,6 +7,9 @@ export const NewsProvider = ({children}:{children: React.ReactNode}) =>{
     const [allNewsCategory, setallNewsCategory] = useState([])
     const [loading , setLoading] = useState(false)
     const [darkMode , setDarkMode] = useState(false)
+    const [userName, setUserName] = useState('')
+    const [alert , setAlert] = useState(false)
+     const [successMessage, setSuccessMessage] = useState('')
     const allNewsData = async()=> {
         try{
         setLoading(true)
@@ -18,21 +21,29 @@ export const NewsProvider = ({children}:{children: React.ReactNode}) =>{
         setLoading(false)
     }
 }
-const categoriesNewsData = async(categorynews:string)=>{
+const categoriesNewsData = async(categorynews:string , page = 1)=>{
     try{
         setLoading(true)
       
-        const CategoryResponse = await axios.get(`http://localhost:9000/News/readProduct/${encodeURIComponent(categorynews!)}`)
-        setallNewsCategory(CategoryResponse.data.response)
+        const CategoryResponse = await axios.get(`http://localhost:9000/News/readProduct/${encodeURIComponent(categorynews)}`,{
+            params:{page, limit:10}
+        })
+        const totalNews = CategoryResponse.data.response
+        setallNewsCategory(prev => (page === 1? totalNews:[...prev , ...totalNews]))
     }catch(err){
         console.log('Not get category news', err)
     }finally{
         setLoading(false)
     }
 }
-   
+   useEffect(()=>{
+    const intervel = setInterval(() => {
+        setAlert(false)
+    }, 20000);
+    return ()=> clearInterval(intervel)
+   },[])
     return(
-        <UserContext.Provider value={{allNews, loading , allNewsData,categoriesNewsData, allNewsCategory, darkMode, setDarkMode}}>
+        <UserContext.Provider value={{allNews, loading , allNewsData,categoriesNewsData, allNewsCategory, darkMode, setDarkMode,setUserName,userName, alert , setAlert, successMessage, setSuccessMessage}}>
             {children}
         </UserContext.Provider>
     )

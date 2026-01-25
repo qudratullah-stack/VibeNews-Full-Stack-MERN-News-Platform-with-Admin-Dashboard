@@ -139,12 +139,7 @@ display: flex;
     100% { opacity: 0; transform: translateY(-10px); }
 }
 
-@media (max-width: 600px) {
-    .arraytextbox {
-        width: 95%;
-        line-height: 1.2;
-    }
-}
+
 /* Image box */
 .iamgeArrayBox {
   display: flex;
@@ -288,4 +283,38 @@ select option:disabled {
   border: none;
   margin-top: 25px;
   display: none;
+}
+.load-more-btn {
+    display: block;
+    margin:30px auto 0px auto;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #1e50b4, #ff00df); 
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.load-more-btn:hover {
+    transform: translateY(-3px); /* ہلکا سا اوپر اٹھنا */
+    box-shadow: 0 6px 20px rgba(255, 0, 223, 0.4);
+    filter: brightness(1.1);
+}
+
+.load-more-btn:active {
+    transform: translateY(1px);
+}
+
+.load-more-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }

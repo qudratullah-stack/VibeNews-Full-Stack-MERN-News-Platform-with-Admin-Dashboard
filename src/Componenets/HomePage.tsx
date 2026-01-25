@@ -4,9 +4,10 @@ import Navbar from "./Navbar"
 import { UserContext } from "../Context/UserContext"
 import { useContext } from "react"
 import  Loading from "./Loading"
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
   function HomePage() {
-  const {loading,  allNews, allNewsData, darkMode} = useContext(UserContext)!;
+  const {loading,  allNews, allNewsData, darkMode, alert, successMessage } = useContext(UserContext)!;
+  const getToken = localStorage.getItem('usertoken')
   useEffect(()=>{
     allNewsData()
   },[])
@@ -22,7 +23,7 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
   return (
     <>
       <Navbar />
-
+       {alert && <div className="alertmessage">{successMessage}</div>}
      <div className={darkMode?'bgnone':'homepageparrent'}>
       <div className="textImageArrayparent">
       <div className="arraytextbox" style={{color:colors[imgLength%colors.length]}} key={imgLength}>{homeImagearray[imgLength].text}</div>
@@ -39,7 +40,7 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
           <h3>{news.title}</h3>
           <p>{news.description}</p>
           <h3>{news.published_at}</h3>
-          <a href={news.url} target="blank"><button>Read More</button></a>
+         {getToken ?( <Link to={news.url } target="blank"><button>Read More</button></Link>):(<Link to={"/login"}><button>Read More</button></Link>)}
         </div>
       ))
     }
