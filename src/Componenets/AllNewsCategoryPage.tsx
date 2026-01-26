@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import defaultImage from '../assets/Homepageheaderbg.png'
 import Navbar from "./Navbar";
 import Loading from "./Loading";
+import Footer from "./Footer";
 function AllNewsCategoryPage() {
     const getToken = localStorage.getItem('usertoken')
 const [page, setPage]= useState(1)
@@ -11,7 +12,8 @@ const [page, setPage]= useState(1)
       const {Category} = useParams<{Category:string}>();
     useEffect(()=>{
         if(Category){
-        categoriesNewsData(Category)}
+          setPage(1)
+        categoriesNewsData(Category,1)}
     },[Category])
     const handleMore = ()=>{
       const addPage = page +1
@@ -43,6 +45,7 @@ const [page, setPage]= useState(1)
     </div>
     <button onClick={handleMore} disabled={loading} className="load-more-btn">{loading?"Loading ...":"Load More"}</button>
     </div>
+    <Footer/>
     </>
   )
 }

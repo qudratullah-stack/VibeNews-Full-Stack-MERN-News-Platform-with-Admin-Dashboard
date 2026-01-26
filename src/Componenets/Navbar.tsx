@@ -18,12 +18,12 @@ export default function Navbar() {
       <div className={`homePageNavbar ${darkMode?'ligntNavbar':''}`}>
         <div className="navbariconparent">
         <img src={newsIcon} alt="newsIcon" />
-        <span>VibeNews</span>
+        <span className='vibe-logo'>VibeNews</span>
         </div>
         <button id='togglebtn' onClick={handleLinkToggle}>&#9776;</button>
         <div className={`navbarAdminLink  ${toggle ?"navbarToggle":''}`}>
           <Link to="/about">About</Link>
-          <Link to="/help">Ask Question</Link>
+          <Link to="/help">Contact us</Link>
           <Link to="/">Home</Link>
           <button onClick={handlemode}>{darkMode?'☾':'☼'}  </button>
           <Link to="/signup">Sign up</Link>

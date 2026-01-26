@@ -6,7 +6,7 @@ import AllNewsCategoryPage from './Componenets/AllNewsCategoryPage'
 import { BrowserRouter, Route , Routes } from 'react-router-dom'
 import Signup from './Authentication/Signup'
 import Login from './Authentication/Login'
-import HelpPage from './Componenets/HelpPage'
+import ContactUs from './Componenets/ContactUs'
 import About from './Componenets/About'
 function App() {
    
@@ -20,7 +20,7 @@ function App() {
         <Route path='/login' element={ <Login/>}/>
         <Route path='/signup' element={ <Signup/>}/>
         <Route path='/about' element={ <About/>}/>
-        <Route path='/help' element={ <HelpPage/>}/>
+        <Route path='/help' element={ <ContactUs/>}/>
         <Route path='/AllNewsCategoryPage/:Category' element={ <AllNewsCategoryPage/>}/>
      
       </Routes>
