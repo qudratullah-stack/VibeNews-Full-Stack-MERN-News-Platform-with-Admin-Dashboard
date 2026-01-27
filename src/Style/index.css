@@ -1,4 +1,4 @@
-/* Container Styles */
+
 .adminnews-parent {
     max-width: 600px;
     margin: 0px auto;
@@ -12,16 +12,15 @@
     transition: all 0.3s ease;
 }
 .padding{
-    padding: 50px;
+    padding: 50px 0px;
 }
-/* Dark Mode Support */
+
 .dark-admin-parent {
     background: #1e1e1e;
     color: white;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* Labels & Inputs */
 .adminnews-parent label {
     font-weight: 600;
     font-size: 14px;
@@ -47,7 +46,6 @@
     color: white;
 }
 
-/* Submit Button */
 .admin-submit-btn {
     background: #007bff;
     color: white;
@@ -63,4 +61,109 @@
 
 .admin-submit-btn:hover {
     background: #0056b3;
+}
+
+.admin-news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.readcard {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    min-width: 250px;
+}
+
+.readcard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.dark-card {
+    background: #1e1e1e;
+    border-color: #333;
+    color: #e0e0e0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.readcard h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+.dark-card h2 {
+    color: #0087ff;
+}
+
+.readcard p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.dark-card p {
+    color: #ff00e3;
+}
+
+.readcard h3 {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #00ff87;
+    word-break: break-all; 
+    margin-bottom: 5px;
+}
+
+.card-action {
+    display: flex;
+    gap: 12px;
+    margin-top: auto; 
+    padding-top: 20px;
+}
+
+.card-action button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.card-action button:first-child {
+    background: #e74c3c;
+    color: white;
+}
+
+.card-action button:first-child:hover {
+    background: #c0392b;
+}
+.card-action button:last-child {
+    background: #3498db;
+    color: white;
+}
+
+.card-action button:last-child:hover {
+    background: #2980b9;
+}
+.allcardparent{
+    display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: auto;
+  margin-top: 20px;
+  padding: 20px;
 }

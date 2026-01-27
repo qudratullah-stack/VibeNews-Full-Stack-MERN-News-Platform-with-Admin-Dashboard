@@ -41,23 +41,23 @@ const readnews = async()=>{
    const res = await axios.get('http://localhost:9000/admin/readnews')
    const newresponse = res.data.readadminNews
    setAdminGetNews(newresponse)
-          setAlert(true)
-      setSuccessMessage('Admin data get successfully')
+
     }catch(err){
-        setAlert(true)
-        setSuccessMessage('Some thing wrong') 
+       
     }finally{
         setLoading(false)
     }
 }
+console.log(admingetNews)
 useEffect(()=>{
     readnews()
 },[])
+
   return (
     <>
     <Navbar/>
      {alert && <div className="alertmessage">{successMessage}</div>}
-       <div className={darkMode?'bgnone':'homepageparrent padding'}>
+       <div className={darkMode?'bgnone padding':'homepageparrent padding'}>
     <div className={`adminnews-parent ${darkMode?'':'dark-admin-parent'}`}>
        <label htmlFor="title">Title</label>
     <input type="text"  id="title"  onChange={e => setTitle(e.target.value)}/>  
@@ -72,17 +72,37 @@ useEffect(()=>{
    <button className="admin-submit-btn" onClick={handlepost}>{loading? "Saving...":"Post News"}</button>
    
     </div>
-    </div>
+    <div className="allcardparent">
     {admingetNews.map((e: any) =>(
-        <div className={`readcard ${darkMode? 'dark-card':''}`} key={e._id}>
-            <h2>{e.title}</h2>
-            <p>{e.description}</p>
-            <h3>{e.image_url}</h3>
-            <h3>{e.url}</h3>
-            <h3>{e.categories}</h3>
-            <h3>{e.published_at}</h3>
+        <div className={`readcard ${darkMode? '':'dark-card'}`} key={e._id}>
+            <h2> <strong>Title</strong> = {e.title}</h2>
+            <p> <strong>discription</strong> = {e.description.substring(0,100)}...</p>
+            <h3> <strong>ImageUrl</strong> = {e.image_url}</h3>
+            <h3><strong>Url</strong> = {e.url}</h3>
+            <h3><strong>Category</strong> = {e.categories}</h3>
+            <div className="card-action">
+            <button onClick={()=>{
+                    const deletnews = async()=>{
+    try{
+        await axios.delete(`http://localhost:9000/admin/deletenews/${e._id}`)
+        setAdminGetNews(admingetNews.filter((item: any) => item._id !== e._id))
+        setAlert(true)
+        setSuccessMessage('Deleted')
+    }catch(err){
+        setAlert(true)
+        setSuccessMessage('Not Found')
+    }
+}
+deletnews()
+            }}>Delete</button>
+            <button>Update</button>
+            </div>
         </div>
+        
     ))}
+    
+    </div>
+    </div>
     </>
   )
 }

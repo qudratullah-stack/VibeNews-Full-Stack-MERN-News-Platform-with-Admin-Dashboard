@@ -39,7 +39,7 @@ const categoriesNewsData = async(categorynews:string , page = 1)=>{
    useEffect(()=>{
     const intervel = setInterval(() => {
         setAlert(false)
-    }, 20000);
+    }, 8000);
     return ()=> clearInterval(intervel)
    },[])
     return(
