@@ -43,7 +43,7 @@ const categoriesNewsData = async(categorynews:string , page = 1)=>{
     return ()=> clearInterval(intervel)
    },[])
     return(
-        <UserContext.Provider value={{allNews, loading , allNewsData,categoriesNewsData, allNewsCategory, darkMode, setDarkMode,setUserName,userName, alert , setAlert, successMessage, setSuccessMessage}}>
+        <UserContext.Provider value={{allNews, loading , allNewsData,categoriesNewsData, allNewsCategory, darkMode, setDarkMode,setUserName,userName, alert , setAlert, successMessage, setSuccessMessage, setLoading}}>
             {children}
         </UserContext.Provider>
     )

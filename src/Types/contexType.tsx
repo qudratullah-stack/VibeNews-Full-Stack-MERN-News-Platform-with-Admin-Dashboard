@@ -13,4 +13,5 @@ export interface NewsContestType{
      setAlert:  Dispatch<SetStateAction <boolean>>,
      successMessage: string,
      setSuccessMessage : Dispatch<SetStateAction <string>>,
+     setLoading : Dispatch<SetStateAction<boolean>>,
 }

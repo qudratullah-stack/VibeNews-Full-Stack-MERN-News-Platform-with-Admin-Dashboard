@@ -75,7 +75,7 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
         <div key={news._id} className="side-card">
           <div className="side-content">
             <span className="side-label">EXPLAINER</span>
-            <h4>{news.description.substring(0, 60)}...</h4>
+           <Link to={news.url} target="_blank"><h4>{news.description.substring(0, 60)}...</h4></Link>  
           </div>
    <img
   src={news.image_url && news.image_url.trim() !== "" ? news.image_url : defaultImage}
@@ -113,7 +113,7 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
         <div key={news._id} className="side-card">
           <div className="side-content">
             <span className="side-label">EXPLAINER</span>
-            <h4>{news.description.substring(0, 60)}...</h4>
+          <Link to={news.url} target="_blank"><h4>{news.description.substring(0, 60)}...</h4></Link>  
           </div>
    <img
   src={news.image_url && news.image_url.trim() !== "" ? news.image_url : defaultImage}
@@ -152,7 +152,7 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
         <div key={news._id} className="side-card">
           <div className="side-content">
             <span className="side-label">EXPLAINER</span>
-            <h4>{news.description.substring(0, 60)}...</h4>
+          <Link to={news.url} target="_blank"><h4>{news.description.substring(0, 60)}...</h4></Link>  
           </div>
    <img
   src={news.image_url && news.image_url.trim() !== "" ? news.image_url : defaultImage}
@@ -165,25 +165,6 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
       ))}
     </div>
   </div>
-</div>
-<div className="home-layout">
-  <div className="main-news-content">
-  </div>
-  <aside className={`trending-sidebar ${darkMode ? 'dark-sidebar' : ''}`}>
-    <h2 className="trending-title">Trending <span>Now</span></h2>
-    <div className="trending-list">
-      {allNews.slice(0, 5).map((news: any, index: number) => (
-        <div key={news._id} className="trending-item">
-          <div className="trending-number">0{index + 1}</div>
-          <div className="trending-info">
-            <span className="side-label">{news.categories[0]}</span>
-            <h4>{news.description.substring(0, 50)}...</h4>
-            <p className="read-time">3 min read</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </aside>
 </div>
     </div>
     <Footer/>

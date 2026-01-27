@@ -13,6 +13,7 @@ export const UserContext = createContext<NewsContestType>({
       alert : false,
     setAlert:  ()=> {},
     successMessage: '',
-    setSuccessMessage: ()=>{}
+    setSuccessMessage: ()=>{},
+    setLoading : ()=>{},
 
 })

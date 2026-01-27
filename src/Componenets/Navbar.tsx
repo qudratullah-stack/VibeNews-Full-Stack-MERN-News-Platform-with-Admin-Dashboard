@@ -28,6 +28,7 @@ export default function Navbar() {
           <button onClick={handlemode}>{darkMode?'☾':'☼'}  </button>
           <Link to="/signup">Sign up</Link>
           <Link to="/login">Login</Link>
+          <Link to="/adminNews">Add News</Link>
         </div>
        <div className="navbarLinkParent">
         <Link to="/AllNewsCategoryPage/general">General</Link>

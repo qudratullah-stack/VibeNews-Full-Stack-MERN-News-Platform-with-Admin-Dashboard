@@ -58,7 +58,7 @@
 input{
     width: 98%;
   height: 40px;
-  border: none;
+  border: 1px solid black;
   outline: none;
   border-radius: 16px;
   padding: 15px ;
