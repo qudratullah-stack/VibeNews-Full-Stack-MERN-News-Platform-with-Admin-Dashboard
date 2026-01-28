@@ -67,3 +67,8 @@ input{
     border: 2px solid #ff4757 !important;
     box-shadow: 0 0 8px rgba(255, 71, 87, 0.3) !important;
 }
+@media(max-width:600px){
+  .alertmessage{
+    width: 95vw;
+  }
+}

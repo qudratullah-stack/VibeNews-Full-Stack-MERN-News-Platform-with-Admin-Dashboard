@@ -1,6 +1,6 @@
 import  { useContext } from 'react';
 import { UserContext } from '../Context/UserContext';
-
+import { Link } from 'react-router-dom';
 const Footer = () => {
   const { darkMode } = useContext(UserContext)!;
 
@@ -17,10 +17,10 @@ const Footer = () => {
         <div className="footer-section links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/help">Contact</a></li>
-            <li><a href="/AllNewsCategoryPage/general">Categories</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link  to="/about">About Us</Link></li>
+            <li><Link to="/help">Contact</Link></li>
+            <li><Link  to="/AllNewsCategoryPage/general">Categories</Link></li>
           </ul>
         </div>
 

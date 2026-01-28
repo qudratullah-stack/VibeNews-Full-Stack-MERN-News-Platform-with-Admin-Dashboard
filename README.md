@@ -6,7 +6,7 @@ It provides real-time news updates, secure authentication, and a role-based Admi
 ---
 
 ## 🌐 Live Preview
-- **Frontend:** https://your-vercel-link.vercel.app  
+- **Frontend:** vibe-news-full-stack-mern-news-plat.vercel.app  
 - **Backend API:** https://vibenews-backend-production.up.railway.app  
 
 ---
@@ -89,7 +89,7 @@ PORT=8080
 NEWS_API_KEY=your news-api-key
 ---
 RESEND_API_KEY=your-resend-api-key
-###---
+### ---
 ## 🚀 Installation & Setup
 👨‍💻 Author
 Qudrat Ullah
