@@ -20,7 +20,7 @@ const Footer = () => {
             <li><a href="/">Home</a></li>
             <li><a href="/about">About Us</a></li>
             <li><a href="/help">Contact</a></li>
-            <li><a href="/categories">Categories</a></li>
+            <li><a href="/AllNewsCategoryPage/general">Categories</a></li>
           </ul>
         </div>
 

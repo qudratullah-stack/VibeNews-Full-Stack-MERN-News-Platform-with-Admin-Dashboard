@@ -19,7 +19,7 @@ const ContactUs = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:9000/registration/contact", {
+      await axios.post("https://vibenews-backend-production.up.railway.app/registration/contact", {
         name,
         email,
         message,

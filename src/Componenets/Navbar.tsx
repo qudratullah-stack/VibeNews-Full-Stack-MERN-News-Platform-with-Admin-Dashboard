@@ -1,8 +1,29 @@
 import newsIcon from '../assets/newsIcon.png'
 import { Link , useNavigate} from 'react-router-dom'
 import { UserContext } from '../Context/UserContext'
-import { useContext, useState} from 'react'
+import { useContext, useEffect, useState} from 'react'
+import { jwtDecode } from 'jwt-decode'
 export default function Navbar() {
+  const token = localStorage.getItem('usertoken')
+  const [isadmin , setIsAdmin] = useState(false)
+  useEffect(()=>{
+     if(token){
+    try{
+      const decoded:any = jwtDecode(token)
+    
+      if(decoded.role === "admin"){
+        setIsAdmin(true)
+      }else{
+        setIsAdmin(false)
+      }
+    }catch(err){
+      setIsAdmin(false)
+    }
+  }else{
+    setIsAdmin(false)
+  }
+  },[token])
+ 
  const navigate = useNavigate()
   const { darkMode, setDarkMode} = useContext(UserContext)
   const handlemode = ()=>{
@@ -28,7 +49,7 @@ export default function Navbar() {
           <button onClick={handlemode}>{darkMode?'☾':'☼'}  </button>
           <Link to="/signup">Sign up</Link>
           <Link to="/login">Login</Link>
-          <Link to="/adminNews">Add News</Link>
+        { isadmin &&<Link to="/adminNews" >Add News</Link>}
         </div>
        <div className="navbarLinkParent">
         <Link to="/AllNewsCategoryPage/general">General</Link>

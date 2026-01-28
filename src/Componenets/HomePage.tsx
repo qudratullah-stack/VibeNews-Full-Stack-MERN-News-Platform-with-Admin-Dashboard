@@ -30,10 +30,7 @@ let   colors = ["#00015e", 'white', '#0099ff','black']
       <div className="textImageArrayparent">
       <div className="arraytextbox" style={{color:colors[imgLength%colors.length]}} key={imgLength}>{homeImagearray[imgLength].text}</div>
      <div className="iamgeArrayBox">
-      <img key={imgLength} src={homeImagearray[imgLength].image} alt="" />
-      {/* <img key={imgLength} src={allNews.map((e)=>{
-      return  e.image_url
-      })[imgLength]} alt="" /> */}
+      <video  key={imgLength} src={homeImagearray[imgLength].image} autoPlay muted></video>
      </div>
      </div>
     {loading && <Loading/>}

@@ -12,7 +12,7 @@ function Login() {
      const { darkMode,alert , setAlert, setSuccessMessage, successMessage} = useContext(UserContext)!;
 const login  = async ()=> {
   try{
-  const res =   await axios.post('http://localhost:9000/registration/login',{
+  const res =   await axios.post('https://vibenews-backend-production.up.railway.app/registration/login',{
      email: loginEmail, 
      password: loginPassword
     })

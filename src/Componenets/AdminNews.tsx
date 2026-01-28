@@ -11,17 +11,19 @@ function AdminNews() {
     const [url , setUrl] = useState('')
     const [categories , setcategory] = useState('')
     const [admingetNews, setAdminGetNews] =  useState<any> ([])
+    const [editId , setEditId] = useState(null)
+    const [updatebtn , setUpdateBtn] = useState(false)
  const createnews = async ()=>{
      setLoading(true)
     try{
-        await axios.post('http://localhost:9000/admin/CreateNews',{
+        await axios.post('https://vibenews-backend-production.up.railway.app/admin/CreateNews',{
             uuid: `admin-${Date.now()}`,
             title,
             description,
             url,
             image_url,
-            categories: categories.split(',').map(c => c.trim())
-        })
+            categories: categories.split(/[ ,]/).map(c => c.trim()).filter(c => c !=='')
+        },{headers: {Authorization: localStorage.getItem('usertoken')}})
         setAlert(true)
       setSuccessMessage('Admin Your data is successfully saved')
     }catch(err){
@@ -38,7 +40,7 @@ function AdminNews() {
 const readnews = async()=>{
     setLoading(true)
     try{
-   const res = await axios.get('http://localhost:9000/admin/readnews')
+   const res = await axios.get('https://vibenews-backend-production.up.railway.app/admin/readnews',{headers: {Authorization: localStorage.getItem('usertoken')}})
    const newresponse = res.data.readadminNews
    setAdminGetNews(newresponse)
 
@@ -48,11 +50,28 @@ const readnews = async()=>{
         setLoading(false)
     }
 }
-console.log(admingetNews)
+
 useEffect(()=>{
     readnews()
 },[])
+const handleupdate = ()=>{
+           const updatenews = async()=>{
+                    try{
+                  await  axios.put(`https://vibenews-backend-production.up.railway.app/admin/updatenews/${editId}`,{
+                        title, description, image_url, url, categories: typeof categories === 'string'? categories.split(/[, ]/).map(c => c.trim()).filter(c => c !== ""): categories
+                    },{headers: {Authorization: localStorage.getItem('usertoken')}})
+                    setAlert(true)
+                    setSuccessMessage('News Updated')
+                }catch(err){
+                    setAlert(true)
+                    setSuccessMessage('Some thing went wrong')
 
+                }
+                }
+                updatenews()
+                setUpdateBtn(false)
+}
+ 
   return (
     <>
     <Navbar/>
@@ -60,16 +79,17 @@ useEffect(()=>{
        <div className={darkMode?'bgnone padding':'homepageparrent padding'}>
     <div className={`adminnews-parent ${darkMode?'':'dark-admin-parent'}`}>
        <label htmlFor="title">Title</label>
-    <input type="text"  id="title"  onChange={e => setTitle(e.target.value)}/>  
+    <input type="text"  id="title" value={title} onChange={e => setTitle(e.target.value)}/>  
      <label htmlFor="description">description</label>
-    <input type="text"  id="description"  onChange={e => setdescription(e.target.value)}/>
+    <input type="text"  id="description" value={description} onChange={e => setdescription(e.target.value)}/>
      <label htmlFor="image-Url">image-Url</label>
-    <input type="text"  id="image-Url" onChange={e => setimage_url(e.target.value)} />
+    <input type="text"  id="image-Url" value={image_url} onChange={e => setimage_url(e.target.value)} />
      <label htmlFor="Url">Url</label>
-    <input type="text"  id="Url"  onChange={e => setUrl(e.target.value)}/>
+    <input type="text"  id="Url" value={url} onChange={e => setUrl(e.target.value)}/>
      <label htmlFor="category">category</label>
-    <input type="text"  id="category"  onChange={e => setcategory(e.target.value)}/>
-   <button className="admin-submit-btn" onClick={handlepost}>{loading? "Saving...":"Post News"}</button>
+    <input type="text"  id="category" value={categories} onChange={e => setcategory(e.target.value)}/>
+  {!updatebtn && <button className="admin-submit-btn" onClick={handlepost}>{loading? "Saving...":"Post News"}</button>}
+  {updatebtn && <button className="admin-submit-btn"  onClick={handleupdate}>{loading? "Updating...":"Update News"}</button>}
    
     </div>
     <div className="allcardparent">
@@ -84,7 +104,7 @@ useEffect(()=>{
             <button onClick={()=>{
                     const deletnews = async()=>{
     try{
-        await axios.delete(`http://localhost:9000/admin/deletenews/${e._id}`)
+        await axios.delete(`https://vibenews-backend-production.up.railway.app/admin/deletenews/${e._id}`,{headers: {Authorization: localStorage.getItem('usertoken')}})
         setAdminGetNews(admingetNews.filter((item: any) => item._id !== e._id))
         setAlert(true)
         setSuccessMessage('Deleted')
@@ -95,7 +115,16 @@ useEffect(()=>{
 }
 deletnews()
             }}>Delete</button>
-            <button>Update</button>
+            <button onClick={()=>{
+                setTitle(e.title)
+                setdescription(e.description)
+                setimage_url(e.image_url)
+                setUrl(e.url)
+                setcategory(e.categories.join(', '))
+                setEditId(e._id)
+                window.scrollTo(0,0)
+               setUpdateBtn(true)
+            }}>Edit</button>
             </div>
         </div>
         

@@ -2,10 +2,10 @@ interface Typearray{
     text: string,
     image: string
 }
-import health  from  '../assets/health2.jpg'
-import science  from  '../assets/science.jpg'
-import political from  '../assets/political.jpg'
-import sport  from  '../assets/sport.jpg'
+import health  from  '../assets/health.mp4'
+import science  from  '../assets/science.mp4'
+import political from  '../assets/political.mp4'
+import sport  from  '../assets/sport.mp4'
 
 
 
