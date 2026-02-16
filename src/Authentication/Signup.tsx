@@ -14,7 +14,7 @@ function Signup() {
   const { darkMode, alert , setAlert, successMessage, setSuccessMessage} = useContext(UserContext)!;
 const signup = async() =>{
   try{
-    await axios.post('https://vibenews-backend-production.up.railway.app/registration/signup',{
+    await axios.post('https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/registration/signup',{
         name, email, password
     }) 
     setAlert(true)

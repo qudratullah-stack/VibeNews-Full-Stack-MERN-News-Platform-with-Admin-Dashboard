@@ -13,7 +13,7 @@ export const NewsProvider = ({children}:{children: React.ReactNode}) =>{
     const allNewsData = async()=> {
         try{
         setLoading(true)
-        const res = await axios.get('https://vibenews-backend-production.up.railway.app/News/readallnews/allProduct')
+        const res = await axios.get('https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/News/readallnews/allProduct')
         setAllNews(res.data.allProduct)
     }catch(error){
         console.error('Api Error')
@@ -25,7 +25,7 @@ const categoriesNewsData = async(categorynews:string , page = 1)=>{
     try{
         setLoading(true)
       
-        const CategoryResponse = await axios.get(`https://vibenews-backend-production.up.railway.app/News/readProduct/${encodeURIComponent(categorynews)}`,{
+        const CategoryResponse = await axios.get(`https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/News/readProduct/${encodeURIComponent(categorynews)}`,{
             params:{page, limit:10}
         })
         const totalNews = CategoryResponse.data.response
