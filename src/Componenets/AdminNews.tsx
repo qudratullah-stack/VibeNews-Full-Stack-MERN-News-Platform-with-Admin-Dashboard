@@ -16,7 +16,7 @@ function AdminNews() {
  const createnews = async ()=>{
      setLoading(true)
     try{
-        await axios.post('https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/admin/CreateNews',{
+        await axios.post(`${import.meta.env.VITE_API_URL}/admin/CreateNews`,{
             uuid: `admin-${Date.now()}`,
             title,
             description,
@@ -40,7 +40,7 @@ function AdminNews() {
 const readnews = async()=>{
     setLoading(true)
     try{
-   const res = await axios.get('https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/admin/readnews',{headers: {Authorization: localStorage.getItem('usertoken')}})
+   const res = await axios.get(`${import.meta.env.VITE_API_URL}/admin/readnews`,{headers: {Authorization: localStorage.getItem('usertoken')}})
    const newresponse = res.data.readadminNews
    setAdminGetNews(newresponse)
 
@@ -57,7 +57,7 @@ useEffect(()=>{
 const handleupdate = ()=>{
            const updatenews = async()=>{
                     try{
-                  await  axios.put(`https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/updatenews/${editId}`,{
+                  await  axios.put(`${import.meta.env.VITE_API_URL}/updatenews/${editId}`,{
                         title, description, image_url, url, categories: typeof categories === 'string'? categories.split(/[, ]/).map(c => c.trim()).filter(c => c !== ""): categories
                     },{headers: {Authorization: localStorage.getItem('usertoken')}})
                     setAlert(true)
@@ -104,7 +104,7 @@ const handleupdate = ()=>{
             <button onClick={()=>{
                     const deletnews = async()=>{
     try{
-        await axios.delete(`https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/admin/deletenews/${e._id}`,{headers: {Authorization: localStorage.getItem('usertoken')}})
+        await axios.delete(`${import.meta.env.VITE_API_URL}/admin/deletenews/${e._id}`,{headers: {Authorization: localStorage.getItem('usertoken')}})
         setAdminGetNews(admingetNews.filter((item: any) => item._id !== e._id))
         setAlert(true)
         setSuccessMessage('Deleted')

@@ -11,8 +11,6 @@ import ContactUs from './Componenets/ContactUs'
 import About from './Componenets/About'
 import AdminNews from './Componenets/AdminNews'
 function App() {
-   
-
   return (
     <>
     <NewsProvider>

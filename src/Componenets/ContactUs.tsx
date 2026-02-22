@@ -19,7 +19,7 @@ const ContactUs = () => {
     setLoading(true);
 
     try {
-      await axios.post("https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/registration/contact", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/registration/contact`, {
         name,
         email,
         message,

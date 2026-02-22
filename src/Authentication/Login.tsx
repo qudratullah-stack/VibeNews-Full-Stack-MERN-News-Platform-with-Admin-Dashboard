@@ -12,7 +12,7 @@ function Login() {
      const { darkMode,alert , setAlert, setSuccessMessage, successMessage} = useContext(UserContext)!;
 const login  = async ()=> {
   try{
-  const res =   await axios.post('https://private-kessia-qudratmasoom-4eceab4f.koyeb.app/registration/login',{
+  const res =   await axios.post(`${import.meta.env.VITE_API_URL}/registration/login`,{
      email: loginEmail, 
      password: loginPassword
     })
